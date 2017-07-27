@@ -49,7 +49,7 @@ public class ChatThread implements Runnable {
             while (true) {
                 String inputLine = in.readLine();
                 System.out.println(inputLine);
-                Thread.sleep(1000);
+                out.println("test");
             }
 
 
