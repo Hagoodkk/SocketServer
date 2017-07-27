@@ -2,7 +2,6 @@ package com.example.project;
 
 import com.example.project.Serializable.BuddyList;
 import com.example.project.Serializable.UserCredentials;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -21,26 +20,40 @@ public class ChatThread implements Runnable {
 
     public void run() {
 
-        String username = "";
+        UserCredentials userCredentials = null;
         ClientTracker clientTracker = ClientTracker.getInstance();
 
         try (ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
-            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream())) {
-            UserCredentials userCredentials = (UserCredentials) ois.readObject();
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+            userCredentials = (UserCredentials) ois.readObject();
             clientTracker.addMember(userCredentials.getUsername(), clientSocket.getOutputStream());
             System.out.println(userCredentials.getUsername() + " connected.");
-            oos.writeObject(null);
-            BuddyList buddyList = (BuddyList) ois.readObject();
+            ArrayList<String> buddies = new ArrayList<>();
+            buddies.add("Carl");
+            buddies.add("Joan");
+            buddies.add("Bob");
+            BuddyList buddyList = new BuddyList(buddies);
             ArrayList<String> currentlyOffline = new ArrayList<>();
             ArrayList<String> currentlyOnline = new ArrayList<>();
-            for (String buddy : buddyList.getBuddyList()) {
+            clientTracker.printClientTracker();
+            for (String buddy : buddyList.getBuddies()) {
                 if (clientTracker.isOnline(buddy)) currentlyOnline.add(buddy);
                 else currentlyOffline.add(buddy);
             }
-            buddyList = new BuddyList(buddyList.getBuddyList());
             buddyList.setCurrentlyOffline(currentlyOffline);
             buddyList.setCurrentlyOnline(currentlyOnline);
             oos.writeObject(buddyList);
+
+            while (true) {
+                String inputLine = in.readLine();
+                System.out.println(inputLine);
+                Thread.sleep(1000);
+            }
+
+
+
 
 
         } catch (Exception e) {
@@ -48,7 +61,7 @@ public class ChatThread implements Runnable {
         } finally {
             try {
                 clientSocket.close();
-                clientTracker.removeMember(username);
+                clientTracker.removeMember(userCredentials.getUsername());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
