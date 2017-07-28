@@ -45,8 +45,7 @@ public class ChatThread implements Runnable {
             ArrayList<String> currentlyOnline = new ArrayList<>();
             sessionManager.printClientTracker();
             for (String buddy : buddyList.getBuddies()) {
-                if (sessionManager.isOnline(buddy)) currentlyOnline.add(buddy);
-                else currentlyOffline.add(buddy);
+                currentlyOnline.add(buddy);
             }
             buddyList.setCurrentlyOffline(currentlyOffline);
             buddyList.setCurrentlyOnline(currentlyOnline);
@@ -59,10 +58,12 @@ public class ChatThread implements Runnable {
                 Message clientInbound = (Message) fromClient.readObject();
                 if (!clientInbound.isNullMessage()) {
                     String recipient = clientInbound.getRecipient();
-                    System.out.println(clientInbound.getMessage());
+                    System.out.println("Inbound: " + clientInbound.getMessage());
                     sessionManager.addOutgoingMessage(recipient, clientInbound);
+                    System.out.println(recipient);
                 }
                 Message clientOutbound = sessionManager.getNextOutgoing(username);
+                if (!clientOutbound.isNullMessage()) System.out.println("Outbound: " + clientOutbound.getMessage());
                 toClient.writeObject(clientOutbound);
                 toClient.flush();
             }
