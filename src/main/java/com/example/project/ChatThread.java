@@ -81,8 +81,6 @@ public class ChatThread implements Runnable {
                 ex.printStackTrace();
             }
         }
-
     }
-
 
 }
