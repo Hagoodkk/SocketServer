@@ -1,6 +1,7 @@
 package com.example.project;
 
 import com.example.project.Serializable.BuddyList;
+import com.example.project.Serializable.Message;
 import com.example.project.Serializable.UserCredentials;
 import java.io.*;
 import java.net.Socket;
@@ -23,12 +24,13 @@ public class ChatThread implements Runnable {
         UserCredentials userCredentials = null;
         ClientTracker clientTracker = ClientTracker.getInstance();
 
-        try (ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+
             userCredentials = (UserCredentials) ois.readObject();
             clientTracker.addMember(userCredentials.getUsername(), clientSocket.getOutputStream());
+
             System.out.println(userCredentials.getUsername() + " connected.");
             ArrayList<String> buddies = new ArrayList<>();
             buddies.add("Carl");
@@ -46,15 +48,26 @@ public class ChatThread implements Runnable {
             buddyList.setCurrentlyOnline(currentlyOnline);
             oos.writeObject(buddyList);
 
+            ObjectOutputStream outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getInputStream());
+
             while (true) {
-                String inputLine = in.readLine();
-                System.out.println(inputLine);
-                out.println("test");
+
+                Message incomingMessage = (Message) inputStream.readObject();
+                Message responseMessage = new Message();
+                responseMessage.setNullMessage(true);
+                outputStream.writeObject(responseMessage);
+                outputStream.flush();
+                if (!incomingMessage.isNullMessage()) {
+                    String sender = incomingMessage.getSender();
+                    String recipient = incomingMessage.getRecipient();
+                    String message = incomingMessage.getMessage();
+                    if (clientTracker.isOnline(recipient)) {
+                        outputStream.writeObject(new Message(sender, recipient, message));
+                        outputStream.flush();
+                    }
+                }
             }
-
-
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,4 +81,6 @@ public class ChatThread implements Runnable {
         }
 
     }
+
+
 }

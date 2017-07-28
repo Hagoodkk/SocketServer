@@ -39,4 +39,8 @@ public class ClientTracker {
         System.out.println(clients.keySet());
     }
 
+    public static OutputStream getOutputStream(String username) {
+        return clients.get(username);
+    }
+
 }
