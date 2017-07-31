@@ -34,22 +34,10 @@ public class ChatThread implements Runnable {
             userCredentials = (UserCredentials) ois.readObject();
             String username = userCredentials.getUsername();
             sessionManager.addMember(username, clientSocket);
-
-            System.out.println(userCredentials.getUsername() + " connected.");
-            ArrayList<String> buddies = new ArrayList<>();
-            buddies.add("Carl");
-            buddies.add("Joan");
-            buddies.add("Bob");
-            BuddyList buddyList = new BuddyList(buddies);
-            ArrayList<String> currentlyOffline = new ArrayList<>();
-            ArrayList<String> currentlyOnline = new ArrayList<>();
             sessionManager.printClientTracker();
-            for (String buddy : buddyList.getBuddies()) {
-                currentlyOnline.add(buddy);
-            }
-            buddyList.setCurrentlyOffline(currentlyOffline);
-            buddyList.setCurrentlyOnline(currentlyOnline);
-            oos.writeObject(buddyList);
+            System.out.println(userCredentials.getUsername() + " connected.");
+
+            oos.writeObject(buildBuddyList(username));
 
             ObjectOutputStream toClient = new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream fromClient = new ObjectInputStream(clientSocket.getInputStream());
@@ -64,6 +52,10 @@ public class ChatThread implements Runnable {
                 }
                 Message clientOutbound = sessionManager.getNextOutgoing(username);
                 if (!clientOutbound.isNullMessage()) System.out.println("Outbound: " + clientOutbound.getMessage());
+                if (clientInbound.isBuddyListUpdate()) {
+                    clientOutbound.setBuddyList(buildBuddyList(username));
+                    clientOutbound.setBuddyListUpdate(true);
+                }
                 toClient.writeObject(clientOutbound);
                 toClient.flush();
             }
@@ -83,5 +75,23 @@ public class ChatThread implements Runnable {
             }
         }
     }
+    private BuddyList buildBuddyList(String username) {
+        ArrayList<String> buddies = new ArrayList<>();
+        buddies.add("Carl");
+        buddies.add("Joan");
+        buddies.add("Bob");
+        BuddyList buddyList = new BuddyList(buddies);
 
+        ArrayList<String> currentlyOffline = new ArrayList<>();
+        ArrayList<String> currentlyOnline = new ArrayList<>();
+
+        SessionManager sessionManager = SessionManager.getInstance();
+        for (String buddy : buddyList.getBuddies()) {
+            if (sessionManager.isOnline(buddy)) currentlyOnline.add(buddy);
+            else currentlyOffline.add(buddy);
+        }
+        buddyList.setCurrentlyOffline(currentlyOffline);
+        buddyList.setCurrentlyOnline(currentlyOnline);
+        return buddyList;
+    }
 }
