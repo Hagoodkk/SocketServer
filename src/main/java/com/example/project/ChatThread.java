@@ -47,8 +47,10 @@ public class ChatThread implements Runnable {
                 if (!clientInbound.isNullMessage()) {
                     String recipient = clientInbound.getRecipient();
                     System.out.println("Inbound: " + clientInbound.getMessage());
-                    sessionManager.addOutgoingMessage(recipient, clientInbound);
-                    System.out.println(recipient);
+                    if (sessionManager.isOnline(recipient)) {
+                        sessionManager.addOutgoingMessage(recipient, clientInbound);
+                        System.out.println(recipient);
+                    }
                 }
                 Message clientOutbound = sessionManager.getNextOutgoing(username);
                 if (!clientOutbound.isNullMessage()) System.out.println("Outbound: " + clientOutbound.getMessage());
@@ -61,13 +63,14 @@ public class ChatThread implements Runnable {
             }
 
         } catch (SocketException se) {
-            System.out.println(userCredentials.getUsername() + " disconnected.");
+
         } catch (IOException ioe) {
-            ioe.printStackTrace();
+
         } catch (ClassNotFoundException cnfe) {
-            cnfe.printStackTrace();
+
         } finally {
             try {
+                System.out.println(userCredentials.getUsername() + " disconnected.");
                 clientSocket.close();
                 sessionManager.removeMember(userCredentials.getUsername());
             } catch (IOException ex) {
