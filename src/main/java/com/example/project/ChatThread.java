@@ -23,8 +23,13 @@ public class ChatThread implements Runnable {
     }
 
     public void run() {
+        String verifiedUsername = verifyCredentials();
+        if (verifiedUsername != null) establishedConnection(verifiedUsername);
+        else System.out.println("Connection failed.");
+    }
 
-        UserCredentials userCredentials = null;
+    private String verifyCredentials() {
+        UserCredentials userCredentials =  null;
         SessionManager sessionManager = SessionManager.getInstance();
 
         try {
@@ -38,7 +43,20 @@ public class ChatThread implements Runnable {
             System.out.println(userCredentials.getUsername() + " connected.");
 
             oos.writeObject(buildBuddyList(username));
+            return username;
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return null;
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+            return null;
+        }
+    }
 
+    private void establishedConnection(String username) {
+        SessionManager sessionManager = SessionManager.getInstance();
+
+        try {
             ObjectOutputStream toClient = new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream fromClient = new ObjectInputStream(clientSocket.getInputStream());
 
@@ -63,21 +81,22 @@ public class ChatThread implements Runnable {
             }
 
         } catch (SocketException se) {
-
+            se.printStackTrace();
         } catch (IOException ioe) {
-
+            ioe.printStackTrace();
         } catch (ClassNotFoundException cnfe) {
-
+            cnfe.printStackTrace();
         } finally {
             try {
-                System.out.println(userCredentials.getUsername() + " disconnected.");
+                System.out.println(username + " disconnected.");
                 clientSocket.close();
-                sessionManager.removeMember(userCredentials.getUsername());
+                sessionManager.removeMember(username);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
     }
+
     private BuddyList buildBuddyList(String username) {
         ArrayList<String> buddies = new ArrayList<>();
         buddies.add("Carl");
