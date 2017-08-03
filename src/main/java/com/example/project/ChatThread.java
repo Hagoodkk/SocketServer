@@ -2,6 +2,7 @@ package com.example.project;
 
 import com.example.project.Serializable.BuddyList;
 import com.example.project.Serializable.Message;
+import com.example.project.Serializable.ServerHello;
 import com.example.project.Serializable.UserCredentials;
 import com.example.project.SessionManager.SessionManager;
 
@@ -23,9 +24,36 @@ public class ChatThread implements Runnable {
     }
 
     public void run() {
-        String verifiedUsername = verifyCredentials();
-        if (verifiedUsername != null) establishedConnection(verifiedUsername);
-        else System.out.println("Connection failed.");
+        int requestType = pingClient();
+        if (requestType == 0) {
+            // Account creation
+        } else if (requestType == 1){
+            String verifiedUsername = verifyCredentials();
+            if (verifiedUsername != null) establishedConnection(verifiedUsername);
+            else System.out.println("Connection failed.");
+        } else if (requestType == -1) {
+            System.out.println("Connection failed.");
+        }
+    }
+
+    private int pingClient() {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+
+            ServerHello serverHello = (ServerHello) ois.readObject();
+            oos.writeObject(new ServerHello());
+            oos.flush();
+            if (serverHello.isRequestUserCreation()) return 0;
+            if (serverHello.isRequestLogin()) return 1;
+            else return -1;
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return -1;
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+            return -1;
+        }
     }
 
     private String verifyCredentials() {
