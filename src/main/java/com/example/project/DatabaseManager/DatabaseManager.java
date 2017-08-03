@@ -39,6 +39,7 @@ public class DatabaseManager {
             String createUsersTable = "CREATE TABLE Users (\n" +
                     "\tUserID Integer PRIMARY KEY AUTOINCREMENT,\n" +
                     "    Username varchar(255) NOT NULL,\n" +
+                    "    PasswordSaltedHash varchar(255) NOT NULL,\n" +
                     "    PasswordSalt varchar(255) NOT NULL\n" +
                     ");";
             statement.executeUpdate(createUsersTable);
@@ -58,11 +59,12 @@ public class DatabaseManager {
         }
     }
 
-    public boolean addUser(String username, String passwordSalt) {
+    public boolean addUser(String username, String passwordSaltedHash, String passwordSalt) {
         try {
             Statement statement = connection.createStatement();
             String addUser =
-                    "INSERT INTO Users (Username, PasswordSalt) VALUES ('" + username + "', '" + passwordSalt + "');";
+                    "INSERT INTO Users (Username, PasswordSaltedHash, PasswordSalt) " +
+                            "VALUES ('" + username + "', '" + passwordSaltedHash + "', '" + passwordSalt + "')";
             statement.executeUpdate(addUser);
             return true;
         } catch (SQLException sqle) {
@@ -117,14 +119,14 @@ public class DatabaseManager {
         }
     }
 
-    public boolean comparePasswordSalt(String username, String passwordSalt) {
+    public boolean comparePasswordSalt(String username, String passwordSaltedHash) {
         try {
             Statement statement = connection.createStatement();
-            String queryUsername = "SELECT PasswordSalt FROM Users WHERE Username='" + username + "'";
-            ResultSet rs = statement.executeQuery(queryUsername);
+            String usernameSaltedHash = "SELECT PasswordSaltedHash FROM Users WHERE Username='" + username + "'";
+            ResultSet rs = statement.executeQuery(usernameSaltedHash);
             if (rs.next()) {
-                String storedPasswordSalt = rs.getString("PasswordSalt");
-                if (passwordSalt.equals(storedPasswordSalt)) return true;
+                String storedPasswordSaltedHash = rs.getString("PasswordSaltedHash");
+                if (storedPasswordSaltedHash.equals(passwordSaltedHash)) return true;
             }
             return false;
         } catch (SQLException sqle) {
