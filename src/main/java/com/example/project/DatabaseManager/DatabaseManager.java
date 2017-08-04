@@ -9,7 +9,7 @@ public class DatabaseManager {
     private static DatabaseManager databaseManager;
     private Connection connection;
 
-    private final String h2Folder = "jdbc:h2:/data/ChatterDatabase";
+    private final String h2Folder = "jdbc:h2:~/ChaterDatabase";
     private final String h2Username = "hVwiUW4ujGAhmS6s";
     private final String h2Password = "2KNlRLJG0ZqRTRpd";
 
@@ -37,7 +37,7 @@ public class DatabaseManager {
         try {
             Statement statement = connection.createStatement();
             String createUsersTable = "CREATE TABLE Users (\n" +
-                    "\tUserID Integer PRIMARY KEY AUTOINCREMENT,\n" +
+                    "\tUserID Integer PRIMARY KEY AUTO_INCREMENT,\n" +
                     "    Username varchar(255) NOT NULL,\n" +
                     "    PasswordSaltedHash varchar(255) NOT NULL,\n" +
                     "    PasswordSalt varchar(255) NOT NULL\n" +
@@ -76,14 +76,14 @@ public class DatabaseManager {
     public boolean removeUser(String username) {
         try {
             Statement statement = connection.createStatement();
-            String deleteUser = "DELETE FROM Users WHERE Username='" + username + "'";
-            statement.executeUpdate(deleteUser);
             String deleteUserBuddies =
                     "DELETE FROM BuddyList WHERE UserID=(SELECT UserID FROM Users WHERE Username='" + username + "')";
             statement.executeUpdate(deleteUserBuddies);
             String deleteFromBuddies =
                     "DELETE FROM BuddyList WHERE BuddyID=(SELECT UserID FROM Users WHERE Username='" + username + "')";
             statement.executeUpdate(deleteFromBuddies);
+            String deleteUser = "DELETE FROM Users WHERE Username='" + username + "'";
+            statement.executeUpdate(deleteUser);
             return true;
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -119,7 +119,7 @@ public class DatabaseManager {
         }
     }
 
-    public boolean comparePasswordSalt(String username, String passwordSaltedHash) {
+    public boolean comparePasswordSaltedHash(String username, String passwordSaltedHash) {
         try {
             Statement statement = connection.createStatement();
             String usernameSaltedHash = "SELECT PasswordSaltedHash FROM Users WHERE Username='" + username + "'";
@@ -153,5 +153,15 @@ public class DatabaseManager {
         }
     }
 
-    public Connection getConnection() { return this.connection; }
+    public void dropAllTables() {
+        try {
+            Statement statement = connection.createStatement();
+            String dropUsers = "DROP TABLE Users";
+            String dropBuddies = "DROP TABLE BuddyList";
+            statement.executeUpdate(dropBuddies);
+            statement.executeUpdate(dropUsers);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+    }
 }
