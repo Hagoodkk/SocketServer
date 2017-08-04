@@ -18,15 +18,17 @@ public class DatabaseManagerTest {
     }
     @Test
     public void stage2_addUserTest() throws Exception {
-        databaseManager.addUser("Alice", "TestSaltedHash", "TestSalt");
-        databaseManager.addUser("Bob", "TestSaltedHash2", "TestSalt2");
-        databaseManager.addUser("Charles", "TestSaltedHash3", "TestSalt3");
+        assert(databaseManager.addUser("Alice", "TestSaltedHash", "TestSalt"));
+        assert(databaseManager.addUser("Bob", "TestSaltedHash2", "TestSalt2"));
+        assert(databaseManager.addUser("Charles", "TestSaltedHash3", "TestSalt3"));
+        assert(!databaseManager.addUser("Alice", "TestSaltedHash", "TestSalt"));
     }
     @Test
     public void stage3_addBuddyToUserTest() throws Exception {
-        databaseManager.addBuddyToUser("Alice", "Bob");
-        databaseManager.addBuddyToUser("Alice", "Charles");
-        databaseManager.addBuddyToUser("Charles", "Alice");
+        assert(databaseManager.addBuddyToUser("Alice", "Bob"));
+        assert(databaseManager.addBuddyToUser("Alice", "Charles"));
+        assert(databaseManager.addBuddyToUser("Charles", "Alice"));
+        assert(!databaseManager.addBuddyToUser("Alice", "Bob"));
     }
     @Test
     public void stage4_comparePasswordSaltedHashTest() throws Exception {

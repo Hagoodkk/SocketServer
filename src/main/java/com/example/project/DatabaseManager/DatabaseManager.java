@@ -9,7 +9,7 @@ public class DatabaseManager {
     private static DatabaseManager databaseManager;
     private Connection connection;
 
-    private final String h2Folder = "jdbc:h2:~/ChaterDatabase";
+    private final String h2Folder = "jdbc:h2:~/ChatterDatabase";
     private final String h2Username = "hVwiUW4ujGAhmS6s";
     private final String h2Password = "2KNlRLJG0ZqRTRpd";
 
@@ -62,11 +62,18 @@ public class DatabaseManager {
     public boolean addUser(String username, String passwordSaltedHash, String passwordSalt) {
         try {
             Statement statement = connection.createStatement();
-            String addUser =
-                    "INSERT INTO Users (Username, PasswordSaltedHash, PasswordSalt) " +
-                            "VALUES ('" + username + "', '" + passwordSaltedHash + "', '" + passwordSalt + "')";
-            statement.executeUpdate(addUser);
-            return true;
+            String checkUser = "SELECT UserID FROM Users WHERE Username='" + username + "'";
+            ResultSet rs = statement.executeQuery(checkUser);
+            if (!rs.next()) {
+                String addUser =
+                        "INSERT INTO Users (Username, PasswordSaltedHash, PasswordSalt) " +
+                                "VALUES ('" + username + "', '" + passwordSaltedHash + "', '" + passwordSalt + "')";
+                statement.executeUpdate(addUser);
+                return true;
+            } else {
+                System.out.println("User already exists");
+                return false;
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;
@@ -94,11 +101,20 @@ public class DatabaseManager {
     public boolean addBuddyToUser(String username, String buddyName) {
         try {
             Statement statement = connection.createStatement();
-            String addBuddy = "INSERT INTO BuddyList (UserID, BuddyID) VALUES " +
-                    "((SELECT UserID FROM Users WHERE Username='" + username + "'), " +
-                    "(SELECT UserID FROM Users WHERE Username='" + buddyName + "'))";
-            statement.executeUpdate(addBuddy);
-            return true;
+            String checkIfBuddyExists = "SELECT UserID FROM BuddyList WHERE " +
+                    "UserID=(SELECT UserID FROM Users WHERE Username='" + username + "') " +
+                    "AND BuddyID=(SELECT UserID FROM Users WHERE Username='" + buddyName + "')";
+            ResultSet rs = statement.executeQuery(checkIfBuddyExists);
+            if (!rs.next()) {
+                String addBuddy = "INSERT INTO BuddyList (UserID, BuddyID) VALUES " +
+                        "((SELECT UserID FROM Users WHERE Username='" + username + "'), " +
+                        "(SELECT UserID FROM Users WHERE Username='" + buddyName + "'))";
+                statement.executeUpdate(addBuddy);
+                return true;
+            } else {
+                System.out.println("Buddy already exists.");
+                return false;
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;

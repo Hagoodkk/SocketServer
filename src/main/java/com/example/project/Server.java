@@ -1,10 +1,15 @@
 package com.example.project;
+import com.example.project.DatabaseManager.DatabaseManager;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) {
+        DatabaseManager databaseManager = DatabaseManager.getInstance();
+        databaseManager.createTables();
+
         int portNumber = 10007;
         ServerSocket serverSocket = startServer(portNumber);
 

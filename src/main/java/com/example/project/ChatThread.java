@@ -1,5 +1,6 @@
 package com.example.project;
 
+import com.example.project.DatabaseManager.DatabaseManager;
 import com.example.project.Serializable.BuddyList;
 import com.example.project.Serializable.Message;
 import com.example.project.Serializable.ServerHello;
@@ -26,7 +27,7 @@ public class ChatThread implements Runnable {
     public void run() {
         int requestType = pingClient();
         if (requestType == 0) {
-            // Account creation
+            accountCreation();
         } else if (requestType == 1){
             String verifiedUsername = verifyCredentials();
             if (verifiedUsername != null) establishedConnection(verifiedUsername);
@@ -34,6 +35,49 @@ public class ChatThread implements Runnable {
         } else if (requestType == -1) {
             System.out.println("Connection failed.");
         }
+    }
+
+    private boolean accountCreation() {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+
+            UserCredentials userCredentials = (UserCredentials) ois.readObject();
+            String username = userCredentials.getUsername().toLowerCase();
+            String passwordSaltedHash = userCredentials.getPasswordSaltedHash();
+            String passwordSalt = userCredentials.getPasswordSalt();
+
+            boolean accountCreated = false;
+
+            if (isValid(username) && isValid(passwordSaltedHash) && isValid(passwordSalt)) {
+                DatabaseManager databaseManager = DatabaseManager.getInstance();
+                accountCreated = (databaseManager.addUser(username, passwordSaltedHash, passwordSalt));
+            }
+
+            if (accountCreated) {
+                userCredentials.setRequestAccepted(true);
+                oos.writeObject(userCredentials);
+                oos.flush();
+                return true;
+            } else {
+                userCredentials.setRequestAccepted(false);
+                oos.writeObject(userCredentials);
+                oos.flush();
+                return false;
+            }
+
+        } catch (IOException ioe) {
+            return false;
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean isValid(String entry) {
+        if (entry.contains(" ")) return false;
+        if (entry.length() == 0) return false;
+        return true;
     }
 
     private int pingClient() {
