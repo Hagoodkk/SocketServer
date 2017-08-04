@@ -2,6 +2,7 @@ package com.example.project.DatabaseManager;
 
 import com.example.project.Serializable.BuddyList;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class DatabaseManager {
     }
 
     public boolean addUser(String username, String passwordSaltedHash, String passwordSalt) {
+        username = username.toLowerCase();
         try {
             Statement statement = connection.createStatement();
             String checkUser = "SELECT UserID FROM Users WHERE Username='" + username + "'";
@@ -81,6 +83,7 @@ public class DatabaseManager {
     }
 
     public boolean removeUser(String username) {
+        username = username.toLowerCase();
         try {
             Statement statement = connection.createStatement();
             String deleteUserBuddies =
@@ -99,6 +102,8 @@ public class DatabaseManager {
     }
 
     public boolean addBuddyToUser(String username, String buddyName) {
+        username = username.toLowerCase();
+        buddyName = buddyName.toLowerCase();
         try {
             Statement statement = connection.createStatement();
             String checkIfBuddyExists = "SELECT UserID FROM BuddyList WHERE " +
@@ -122,6 +127,8 @@ public class DatabaseManager {
     }
 
     public boolean removeBuddyFromUser(String username, String buddyName) {
+        username = username.toLowerCase();
+        buddyName = buddyName.toLowerCase();
         try {
             Statement statement = connection.createStatement();
             String removeBuddy = "DELETE FROM BuddyList WHERE " +
@@ -135,7 +142,23 @@ public class DatabaseManager {
         }
     }
 
+    public String getUserSalt(String username) {
+        username = username.toLowerCase();
+        try {
+            Statement statement = connection.createStatement();
+            String getSalt = "SELECT PasswordSalt FROM Users WHERE Username='" + username + "'";
+            ResultSet rs = statement.executeQuery(getSalt);
+            if (rs.next()) {
+                return rs.getString("PasswordSalt");
+            } else return null;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return null;
+        }
+    }
+
     public boolean comparePasswordSaltedHash(String username, String passwordSaltedHash) {
+        username = username.toLowerCase();
         try {
             Statement statement = connection.createStatement();
             String usernameSaltedHash = "SELECT PasswordSaltedHash FROM Users WHERE Username='" + username + "'";
@@ -152,6 +175,7 @@ public class DatabaseManager {
     }
 
     public BuddyList getBuddyList(String username) {
+        username = username.toLowerCase();
         ArrayList<String> buddies = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();

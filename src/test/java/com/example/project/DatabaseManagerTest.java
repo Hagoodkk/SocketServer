@@ -40,12 +40,12 @@ public class DatabaseManagerTest {
         BuddyList buddyList = databaseManager.getBuddyList("Alice");
         ArrayList<String> buddies = buddyList.getBuddies();
         assert(buddies.size() == 2);
-        assert(buddies.contains("Bob"));
-        assert(buddies.contains("Charles"));
+        assert(buddies.contains("bob"));
+        assert(buddies.contains("charles"));
         buddyList = databaseManager.getBuddyList("Charles");
         buddies = buddyList.getBuddies();
         assert(buddies.size() == 1);
-        assert(buddies.contains("Alice"));
+        assert(buddies.contains("alice"));
     }
     @Test
     public void stage6_removeBuddyFromUserTest() throws Exception {
@@ -53,7 +53,7 @@ public class DatabaseManagerTest {
         BuddyList buddyList = databaseManager.getBuddyList("Alice");
         ArrayList<String> buddies = buddyList.getBuddies();
         assert(buddies.size() == 1);
-        assert(buddies.contains("Bob"));
+        assert(buddies.contains("bob"));
     }
     @Test
     public void stage7_removeUserTest() throws Exception {

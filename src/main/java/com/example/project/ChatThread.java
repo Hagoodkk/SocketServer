@@ -6,7 +6,9 @@ import com.example.project.Serializable.Message;
 import com.example.project.Serializable.ServerHello;
 import com.example.project.Serializable.UserCredentials;
 import com.example.project.SessionManager.SessionManager;
+import org.h2.engine.User;
 
+import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
@@ -46,6 +48,8 @@ public class ChatThread implements Runnable {
             String username = userCredentials.getUsername().toLowerCase();
             String passwordSaltedHash = userCredentials.getPasswordSaltedHash();
             String passwordSalt = userCredentials.getPasswordSalt();
+
+            System.out.println(passwordSalt);
 
             boolean accountCreated = false;
 
@@ -110,12 +114,41 @@ public class ChatThread implements Runnable {
 
             userCredentials = (UserCredentials) ois.readObject();
             String username = userCredentials.getUsername();
-            sessionManager.addMember(username, clientSocket);
-            sessionManager.printClientTracker();
-            System.out.println(userCredentials.getUsername() + " connected.");
 
-            oos.writeObject(buildBuddyList(username));
-            return username;
+            DatabaseManager databaseManager = DatabaseManager.getInstance();
+            String salt = databaseManager.getUserSalt(username);
+            userCredentials.setPasswordSalt(salt);
+
+            System.out.println(salt);
+
+            oos.writeObject(userCredentials);
+            oos.flush();
+
+            userCredentials = (UserCredentials) ois.readObject();
+            if (databaseManager.comparePasswordSaltedHash(userCredentials.getUsername(), userCredentials.getPasswordSaltedHash())) {
+                userCredentials.setRequestAccepted(true);
+                oos.writeObject(userCredentials);
+                oos.flush();
+
+                oos = new ObjectOutputStream(clientSocket.getOutputStream());
+                ois = new ObjectInputStream(clientSocket.getInputStream());
+
+                BuddyList buddyList = (BuddyList) ois.readObject();
+
+                oos.writeObject(buildBuddyList(username));
+
+                sessionManager.addMember(username, clientSocket);
+                sessionManager.printClientTracker();
+                System.out.println(userCredentials.getUsername() + " connected.");
+                return username;
+            } else {
+                userCredentials.setRequestAccepted(false);
+                oos.writeObject(userCredentials);
+                oos.flush();
+                System.out.println("Connection refused.");
+                return null;
+            }
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
             return null;
