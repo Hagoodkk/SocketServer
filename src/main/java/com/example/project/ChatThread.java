@@ -125,12 +125,7 @@ public class ChatThread implements Runnable {
             oos.flush();
 
             userCredentials = (UserCredentials) ois.readObject();
-            //if (databaseManager.comparePasswordSaltedHash(userCredentials.getUsername(), userCredentials.getPasswordSaltedHash())) {
-            /*
-                Commenting out authentication check for now. Some password salt values are not being stored into
-                the database correctly due to non-ASCII characters. Needs fixed to finish authentication.
-             */
-            if (true) {
+            if (databaseManager.comparePasswordSaltedHash(userCredentials.getUsername(), userCredentials.getPasswordSaltedHash())) {
                 userCredentials.setRequestAccepted(true);
                 oos.writeObject(userCredentials);
                 oos.flush();
