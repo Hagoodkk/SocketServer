@@ -6,9 +6,7 @@ import com.example.project.Serializable.Message;
 import com.example.project.Serializable.ServerHello;
 import com.example.project.Serializable.UserCredentials;
 import com.example.project.SessionManager.SessionManager;
-import org.h2.engine.User;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
@@ -119,7 +117,6 @@ public class ChatThread implements Runnable {
             String salt = databaseManager.getUserSalt(username);
             userCredentials.setPasswordSalt(salt);
 
-            System.out.println(salt);
 
             oos.writeObject(userCredentials);
             oos.flush();

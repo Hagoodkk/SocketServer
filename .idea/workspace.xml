@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c112bc2-d97c-42d5-bb64-231d450cf2ce" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/project/ChatThread.class" afterPath="$PROJECT_DIR$/target/classes/com/example/project/ChatThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/project/DatabaseManager/DatabaseManager.class" afterPath="$PROJECT_DIR$/target/classes/com/example/project/DatabaseManager/DatabaseManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" />
     </list>
@@ -38,8 +39,8 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="257">
+              <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="127" column="132" lean-forward="false" selection-start-line="127" selection-start-column="132" selection-end-line="127" selection-end-column="132" />
+            <state relative-caret-position="217">
+              <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,7 +92,7 @@
       <file leaf-file-name="SessionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="238">
               <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,49 +104,51 @@
       <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="217">
+              <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1501873378424" expanded="true" signature="1248:1566" ph="CREATE TABLE... Users" />
-                <marker date="1501873378424" expanded="true" signature="1668:2088" ph="CREATE TABLE... BuddyList" />
-                <marker date="1501873378424" expanded="true" signature="2540:2598" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="2751:2860" ph="INSERT INTO Users... " />
-                <marker date="1501873378424" expanded="true" signature="2751:2880" ph="INSERT INTO Users... " />
-                <marker date="1501873378424" expanded="true" signature="2751:2910" ph="INSERT INTO Users... " />
-                <marker date="1501873378424" expanded="true" signature="2751:2932" ph="INSERT INTO Users... " />
-                <marker date="1501873378424" expanded="true" signature="3485:3580" ph="DELETE FROM " />
-                <marker date="1501873378424" expanded="true" signature="3521:3579" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="3699:3795" ph="DELETE FROM " />
-                <marker date="1501873378424" expanded="true" signature="3736:3794" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="3887:3938" ph="DELETE FROM " />
-                <marker date="1501873378424" expanded="true" signature="4410:4636" ph="SELECT UserI... BuddyList" />
-                <marker date="1501873378424" expanded="true" signature="4410:4637" ph="SELECT UserI... BuddyList" />
-                <marker date="1501873378424" expanded="true" signature="4478:4536" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="4576:4635" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="4775:5005" ph="INSERT INTO BuddyList... " />
-                <marker date="1501873378424" expanded="true" signature="4853:4911" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="4944:5003" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="5607:5826" ph="DELETE FROM " />
-                <marker date="1501873378424" expanded="true" signature="5668:5726" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="5766:5825" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="6221:6285" ph="SELECT Passw... Users" />
-                <marker date="1501873378424" expanded="true" signature="6831:6901" ph="SELECT Passw... Users" />
-                <marker date="1501873378424" expanded="true" signature="7595:7812" ph="SELECT Usern... Users" />
-                <marker date="1501873378424" expanded="true" signature="7753:7811" ph="SELECT UserI... Users" />
-                <marker date="1501873378424" expanded="true" signature="8282:8298" ph="DROP TABLE U... " />
-                <marker date="1501873378424" expanded="true" signature="8335:8355" ph="DROP TABLE B... " />
+                <marker date="1501955452620" expanded="true" signature="1248:1566" ph="CREATE TABLE... Users" />
+                <marker date="1501955452620" expanded="true" signature="1668:2088" ph="CREATE TABLE... BuddyList" />
+                <marker date="1501955452620" expanded="true" signature="2540:2598" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="2751:2860" ph="INSERT INTO Users... " />
+                <marker date="1501955452620" expanded="true" signature="2751:2880" ph="INSERT INTO Users... " />
+                <marker date="1501955452620" expanded="true" signature="2751:2910" ph="INSERT INTO Users... " />
+                <marker date="1501955452620" expanded="true" signature="2751:2932" ph="INSERT INTO Users... " />
+                <marker date="1501955452620" expanded="true" signature="3485:3580" ph="DELETE FROM " />
+                <marker date="1501955452620" expanded="true" signature="3521:3579" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="3699:3795" ph="DELETE FROM " />
+                <marker date="1501955452620" expanded="true" signature="3736:3794" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="3887:3938" ph="DELETE FROM " />
+                <marker date="1501955452620" expanded="true" signature="4410:4636" ph="SELECT UserI... BuddyList" />
+                <marker date="1501955452620" expanded="true" signature="4410:4637" ph="SELECT UserI... BuddyList" />
+                <marker date="1501955452620" expanded="true" signature="4478:4536" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="4576:4635" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="4775:5005" ph="INSERT INTO BuddyList... " />
+                <marker date="1501955452620" expanded="true" signature="4853:4911" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="4944:5003" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="5607:5826" ph="DELETE FROM " />
+                <marker date="1501955452620" expanded="true" signature="5668:5726" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="5766:5825" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="6221:6285" ph="SELECT Passw... Users" />
+                <marker date="1501955452620" expanded="true" signature="6831:6901" ph="SELECT Passw... Users" />
+                <marker date="1501955452620" expanded="true" signature="7595:7812" ph="SELECT Usern... Users" />
+                <marker date="1501955452620" expanded="true" signature="7753:7811" ph="SELECT UserI... Users" />
+                <marker date="1501955452620" expanded="true" signature="8282:8298" ph="DROP TABLE U... " />
+                <marker date="1501955452620" expanded="true" signature="8335:8355" ph="DROP TABLE B... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseManagerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseManagerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="376">
+              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,6 +191,8 @@
     <findStrings>
       <find>clientTracker</find>
       <find>clients</find>
+      <find>compare</find>
+      <find>System.out</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,8 +217,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/UserCredentials.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" />
       </list>
     </option>
@@ -252,8 +257,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -339,14 +345,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SocketClient" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -385,31 +390,6 @@
       <option name="MAIN_CLASS_NAME" value="com.example.project.DatabaseManagerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="DatabaseManagerTest.resetTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.example.project.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="SocketServer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.example.project" />
-      <option name="MAIN_CLASS_NAME" value="com.example.project.DatabaseManagerTest" />
-      <option name="METHOD_NAME" value="resetTests" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -484,6 +464,31 @@
       <option name="PACKAGE_NAME" value="com.example.project" />
       <option name="MAIN_CLASS_NAME" value="com.example.project.DatabaseManagerTest" />
       <option name="METHOD_NAME" value="stage7_removeUserTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="DatabaseManagerTest.stage8_resetTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.example.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SocketServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.example.project" />
+      <option name="MAIN_CLASS_NAME" value="com.example.project.DatabaseManagerTest" />
+      <option name="METHOD_NAME" value="stage8_resetTests" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -889,19 +894,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Server" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.resetTests" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage7_removeUserTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage1_createTablesTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage2_addUserTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage7_removeUserTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage1_createTablesTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage2_addUserTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage8_resetTests" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage2_addUserTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage1_createTablesTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage7_removeUserTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.resetTests" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage8_resetTests" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage2_addUserTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage1_createTablesTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DatabaseManagerTest.stage7_removeUserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -940,29 +945,12 @@
       <workItem from="1501858372736" duration="1666000" />
       <workItem from="1501862045325" duration="8007000" />
       <workItem from="1501870923882" duration="3158000" />
-      <workItem from="1501882386141" duration="121000" />
+      <workItem from="1501882386141" duration="1314000" />
+      <workItem from="1501952139679" duration="2307000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseManagerTest - 2017.08.04 at 14h 23m 05s.xml">
-      <configuration name="DatabaseManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseManagerTest - 2017.08.04 at 14h 56m 47s.xml">
-      <configuration name="DatabaseManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseManagerTest - 2017.08.04 at 14h 56m 52s.xml">
-      <configuration name="DatabaseManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseManagerTest - 2017.08.04 at 15h 01m 41s.xml">
-      <configuration name="DatabaseManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseManagerTest - 2017.08.04 at 15h 01m 45s.xml">
-      <configuration name="DatabaseManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseManagerTest - 2017.08.04 at 15h 02m 12s.xml">
-      <configuration name="DatabaseManagerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DatabaseManagerTest - 2017.08.04 at 15h 03m 00s.xml">
       <configuration name="DatabaseManagerTest" configurationId="JUnit" />
     </history-entry>
@@ -975,13 +963,30 @@
     <history-entry file="DatabaseManagerTest_stage2_addUserTest - 2017.08.04 at 13h 43m 16s.xml">
       <configuration name="DatabaseManagerTest.stage2_addUserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DatabaseManagerTest_stage8_resetTests - 2017.08.04 at 17h 37m 49s.xml">
+      <configuration name="DatabaseManagerTest.stage8_resetTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseManagerTest_stage8_resetTests - 2017.08.05 at 12h 59m 22s.xml">
+      <configuration name="DatabaseManagerTest.stage8_resetTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseManagerTest_stage8_resetTests - 2017.08.05 at 13h 00m 25s.xml">
+      <configuration name="DatabaseManagerTest.stage8_resetTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseManagerTest_stage8_resetTests - 2017.08.05 at 13h 31m 51s.xml">
+      <configuration name="DatabaseManagerTest.stage8_resetTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseManagerTest_stage8_resetTests - 2017.08.05 at 13h 32m 51s.xml">
+      <configuration name="DatabaseManagerTest.stage8_resetTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseManagerTest_stage8_resetTests - 2017.08.05 at 13h 51m 30s.xml">
+      <configuration name="DatabaseManagerTest.stage8_resetTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102754000" />
+    <option name="totallyTimeSpent" value="106254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="45" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -992,11 +997,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22587487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22587487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.190625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.190625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1391,16 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Serializable/UserCredentials.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1414,55 +1409,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1501873378424" expanded="true" signature="1248:1566" ph="CREATE TABLE... Users" />
-            <marker date="1501873378424" expanded="true" signature="1668:2088" ph="CREATE TABLE... BuddyList" />
-            <marker date="1501873378424" expanded="true" signature="2540:2598" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="2751:2860" ph="INSERT INTO Users... " />
-            <marker date="1501873378424" expanded="true" signature="2751:2880" ph="INSERT INTO Users... " />
-            <marker date="1501873378424" expanded="true" signature="2751:2910" ph="INSERT INTO Users... " />
-            <marker date="1501873378424" expanded="true" signature="2751:2932" ph="INSERT INTO Users... " />
-            <marker date="1501873378424" expanded="true" signature="3485:3580" ph="DELETE FROM " />
-            <marker date="1501873378424" expanded="true" signature="3521:3579" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="3699:3795" ph="DELETE FROM " />
-            <marker date="1501873378424" expanded="true" signature="3736:3794" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="3887:3938" ph="DELETE FROM " />
-            <marker date="1501873378424" expanded="true" signature="4410:4636" ph="SELECT UserI... BuddyList" />
-            <marker date="1501873378424" expanded="true" signature="4410:4637" ph="SELECT UserI... BuddyList" />
-            <marker date="1501873378424" expanded="true" signature="4478:4536" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="4576:4635" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="4775:5005" ph="INSERT INTO BuddyList... " />
-            <marker date="1501873378424" expanded="true" signature="4853:4911" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="4944:5003" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="5607:5826" ph="DELETE FROM " />
-            <marker date="1501873378424" expanded="true" signature="5668:5726" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="5766:5825" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="6221:6285" ph="SELECT Passw... Users" />
-            <marker date="1501873378424" expanded="true" signature="6831:6901" ph="SELECT Passw... Users" />
-            <marker date="1501873378424" expanded="true" signature="7595:7812" ph="SELECT Usern... Users" />
-            <marker date="1501873378424" expanded="true" signature="7753:7811" ph="SELECT UserI... Users" />
-            <marker date="1501873378424" expanded="true" signature="8282:8298" ph="DROP TABLE U... " />
-            <marker date="1501873378424" expanded="true" signature="8335:8355" ph="DROP TABLE B... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="238">
           <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1470,10 +1419,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1501955452620" expanded="true" signature="1248:1566" ph="CREATE TABLE... Users" />
+            <marker date="1501955452620" expanded="true" signature="1668:2088" ph="CREATE TABLE... BuddyList" />
+            <marker date="1501955452620" expanded="true" signature="2540:2598" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="2751:2860" ph="INSERT INTO Users... " />
+            <marker date="1501955452620" expanded="true" signature="2751:2880" ph="INSERT INTO Users... " />
+            <marker date="1501955452620" expanded="true" signature="2751:2910" ph="INSERT INTO Users... " />
+            <marker date="1501955452620" expanded="true" signature="2751:2932" ph="INSERT INTO Users... " />
+            <marker date="1501955452620" expanded="true" signature="3485:3580" ph="DELETE FROM " />
+            <marker date="1501955452620" expanded="true" signature="3521:3579" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="3699:3795" ph="DELETE FROM " />
+            <marker date="1501955452620" expanded="true" signature="3736:3794" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="3887:3938" ph="DELETE FROM " />
+            <marker date="1501955452620" expanded="true" signature="4410:4636" ph="SELECT UserI... BuddyList" />
+            <marker date="1501955452620" expanded="true" signature="4410:4637" ph="SELECT UserI... BuddyList" />
+            <marker date="1501955452620" expanded="true" signature="4478:4536" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="4576:4635" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="4775:5005" ph="INSERT INTO BuddyList... " />
+            <marker date="1501955452620" expanded="true" signature="4853:4911" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="4944:5003" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="5607:5826" ph="DELETE FROM " />
+            <marker date="1501955452620" expanded="true" signature="5668:5726" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="5766:5825" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="6221:6285" ph="SELECT Passw... Users" />
+            <marker date="1501955452620" expanded="true" signature="6831:6901" ph="SELECT Passw... Users" />
+            <marker date="1501955452620" expanded="true" signature="7595:7812" ph="SELECT Usern... Users" />
+            <marker date="1501955452620" expanded="true" signature="7753:7811" ph="SELECT UserI... Users" />
+            <marker date="1501955452620" expanded="true" signature="8282:8298" ph="DROP TABLE U... " />
+            <marker date="1501955452620" expanded="true" signature="8335:8355" ph="DROP TABLE B... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="127" column="132" lean-forward="false" selection-start-line="127" selection-start-column="132" selection-end-line="127" selection-end-column="132" />
+        <state relative-caret-position="217">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
