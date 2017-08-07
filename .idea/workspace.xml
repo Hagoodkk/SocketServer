@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7c112bc2-d97c-42d5-bb64-231d450cf2ce" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/project/ChatThread.class" afterPath="$PROJECT_DIR$/target/classes/com/example/project/ChatThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/example/project/DatabaseManager/DatabaseManager.class" afterPath="$PROJECT_DIR$/target/classes/com/example/project/DatabaseManager/DatabaseManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" />
     </list>
@@ -39,7 +38,7 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="391">
               <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -48,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatThread.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChatThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="22" />
+            <state relative-caret-position="459">
+              <caret line="45" column="71" lean-forward="true" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +91,7 @@
       <file leaf-file-name="SessionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="391">
               <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -104,7 +103,7 @@
       <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
+            <state relative-caret-position="459">
               <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -141,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseManagerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseManagerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+            <state relative-caret-position="850">
+              <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,6 +192,7 @@
       <find>clients</find>
       <find>compare</find>
       <find>System.out</find>
+      <find>Inbound:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -257,9 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -345,7 +342,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -946,7 +946,14 @@
       <workItem from="1501862045325" duration="8007000" />
       <workItem from="1501870923882" duration="3158000" />
       <workItem from="1501882386141" duration="1314000" />
-      <workItem from="1501952139679" duration="2307000" />
+      <workItem from="1501952139679" duration="2904000" />
+      <workItem from="1501959818614" duration="63000" />
+      <workItem from="1501960835189" duration="949000" />
+      <workItem from="1501963154765" duration="1949000" />
+      <workItem from="1502116228053" duration="53000" />
+      <workItem from="1502116349195" duration="42000" />
+      <workItem from="1502120998005" duration="4342000" />
+      <workItem from="1502137379863" duration="1390000" />
     </task>
     <servers />
   </component>
@@ -983,7 +990,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106254000" />
+    <option name="totallyTimeSpent" value="115639000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="45" width="1936" height="1056" extended-state="6" />
@@ -997,11 +1004,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22587487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22587487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.190625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.190625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1349,7 +1356,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13022">
           <caret line="805" column="0" lean-forward="false" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1411,7 +1417,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="391">
           <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1421,7 +1427,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
+        <state relative-caret-position="391">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1431,7 +1437,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
+        <state relative-caret-position="459">
           <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1467,20 +1473,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="22" />
+        <state relative-caret-position="850">
+          <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="57" column="9" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+        <state relative-caret-position="459">
+          <caret line="45" column="71" lean-forward="true" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

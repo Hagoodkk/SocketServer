@@ -171,6 +171,9 @@ public class ChatThread implements Runnable {
                         sessionManager.addOutgoingMessage(recipient, clientInbound);
                         System.out.println(recipient);
                     }
+                    else {
+                        sessionManager.addOutgoingMessage(recipient, clientInbound);
+                    }
                 }
                 Message clientOutbound = sessionManager.getNextOutgoing(username);
                 if (!clientOutbound.isNullMessage()) System.out.println("Outbound: " + clientOutbound.getMessage());
@@ -211,8 +214,7 @@ public class ChatThread implements Runnable {
 
         SessionManager sessionManager = SessionManager.getInstance();
         for (String buddy : buddyList.getBuddies()) {
-            if (sessionManager.isOnline(buddy)) currentlyOnline.add(buddy);
-            else currentlyOffline.add(buddy);
+            currentlyOnline.add(buddy);
         }
         buddyList.setCurrentlyOffline(currentlyOffline);
         buddyList.setCurrentlyOnline(currentlyOnline);
