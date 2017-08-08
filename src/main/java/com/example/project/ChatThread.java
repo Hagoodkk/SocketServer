@@ -1,10 +1,7 @@
 package com.example.project;
 
 import com.example.project.DatabaseManager.DatabaseManager;
-import com.example.project.Serializable.BuddyList;
-import com.example.project.Serializable.Message;
-import com.example.project.Serializable.ServerHello;
-import com.example.project.Serializable.UserCredentials;
+import com.example.project.Serializable.*;
 import com.example.project.SessionManager.SessionManager;
 
 import java.io.*;
@@ -203,17 +200,18 @@ public class ChatThread implements Runnable {
     }
 
     private BuddyList buildBuddyList(String username) {
-        ArrayList<String> buddies = new ArrayList<>();
-        buddies.add("Carl");
-        buddies.add("Joan");
-        buddies.add("Bob");
-        BuddyList buddyList = new BuddyList(buddies);
+        ArrayList<Buddy> buddies = new ArrayList<>();
+        buddies.add(new Buddy("Carl", "Friends"));
+        buddies.add(new Buddy("Joan", "Friends"));
+        buddies.add(new Buddy("Bob", "Friends"));
+        BuddyList buddyList = new BuddyList();
+        buddyList.setBuddies(buddies);
 
-        ArrayList<String> currentlyOffline = new ArrayList<>();
-        ArrayList<String> currentlyOnline = new ArrayList<>();
+        ArrayList<Buddy> currentlyOffline = new ArrayList<>();
+        ArrayList<Buddy> currentlyOnline = new ArrayList<>();
 
         SessionManager sessionManager = SessionManager.getInstance();
-        for (String buddy : buddyList.getBuddies()) {
+        for (Buddy buddy : buddyList.getBuddies()) {
             currentlyOnline.add(buddy);
         }
         buddyList.setCurrentlyOffline(currentlyOffline);

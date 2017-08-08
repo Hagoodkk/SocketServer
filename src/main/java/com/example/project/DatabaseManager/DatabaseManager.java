@@ -1,10 +1,11 @@
 package com.example.project.DatabaseManager;
 
+import com.example.project.Serializable.Buddy;
 import com.example.project.Serializable.BuddyList;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DatabaseManager {
     private static DatabaseManager databaseManager;
@@ -40,6 +41,7 @@ public class DatabaseManager {
             String createUsersTable = "CREATE TABLE Users (\n" +
                     "\tUserID Integer PRIMARY KEY AUTO_INCREMENT,\n" +
                     "    Username varchar(255) NOT NULL,\n" +
+                    "    DisplayName varchar(255) NOT NULL,\n" +
                     "    PasswordSaltedHash varchar(255) NOT NULL,\n" +
                     "    PasswordSalt varchar(255) NOT NULL\n" +
                     ");";
@@ -47,6 +49,7 @@ public class DatabaseManager {
             String createBuddyListTable = "CREATE TABLE BuddyList (\n" +
                     "\tUserID Integer NOT NULL,\n" +
                     "    BuddyID Integer NOT NULL,\n" +
+                    "    GroupName varchar(255) NOT NULL,\n" +
                     "    CONSTRAINT FK_UserKey FOREIGN KEY (UserID)\n" +
                     "    REFERENCES Users(UserID),\n" +
                     "    CONSTRAINT FK_BuddyKey FOREIGN KEY (BuddyID)\n" +
@@ -61,6 +64,7 @@ public class DatabaseManager {
     }
 
     public boolean addUser(String username, String passwordSaltedHash, String passwordSalt) {
+        String displayName = username;
         username = username.toLowerCase();
         try {
             Statement statement = connection.createStatement();
@@ -68,8 +72,8 @@ public class DatabaseManager {
             ResultSet rs = statement.executeQuery(checkUser);
             if (!rs.next()) {
                 String addUser =
-                        "INSERT INTO Users (Username, PasswordSaltedHash, PasswordSalt) " +
-                                "VALUES ('" + username + "', '" + passwordSaltedHash + "', '" + passwordSalt + "')";
+                        "INSERT INTO Users (Username, DisplayName, PasswordSaltedHash, PasswordSalt) " +
+                                "VALUES ('" + username + "', '" + displayName + "', '" + passwordSaltedHash + "', '" + passwordSalt + "')";
                 statement.executeUpdate(addUser);
                 return true;
             } else {
@@ -101,7 +105,7 @@ public class DatabaseManager {
         }
     }
 
-    public boolean addBuddyToUser(String username, String buddyName) {
+    public boolean addBuddyToUser(String username, String buddyName, String groupName) {
         username = username.toLowerCase();
         buddyName = buddyName.toLowerCase();
         try {
@@ -111,9 +115,10 @@ public class DatabaseManager {
                     "AND BuddyID=(SELECT UserID FROM Users WHERE Username='" + buddyName + "')";
             ResultSet rs = statement.executeQuery(checkIfBuddyExists);
             if (!rs.next()) {
-                String addBuddy = "INSERT INTO BuddyList (UserID, BuddyID) VALUES " +
+                String addBuddy = "INSERT INTO BuddyList (UserID, BuddyID, GroupName) VALUES " +
                         "((SELECT UserID FROM Users WHERE Username='" + username + "'), " +
-                        "(SELECT UserID FROM Users WHERE Username='" + buddyName + "'))";
+                        "(SELECT UserID FROM Users WHERE Username='" + buddyName + "'), " +
+                        "'" + groupName + "')";
                 statement.executeUpdate(addBuddy);
                 return true;
             } else {
@@ -176,17 +181,17 @@ public class DatabaseManager {
 
     public BuddyList getBuddyList(String username) {
         username = username.toLowerCase();
-        ArrayList<String> buddies = new ArrayList<>();
+        BuddyList buddyList = new BuddyList();
         try {
             Statement statement = connection.createStatement();
-            String getBuddies = "SELECT Username FROM Users\n" +
+            String getBuddies = "SELECT DisplayName, GroupName FROM Users\n" +
                     "INNER JOIN BuddyList ON Users.UserID=BuddyList.BuddyID\n" +
                     "WHERE BuddyList.UserID=(SELECT UserID FROM Users WHERE Username='" + username + "')";
             ResultSet rs = statement.executeQuery(getBuddies);
             while (rs.next()) {
-                buddies.add(rs.getString("Username"));
+                buddyList.addBuddy(new Buddy(rs.getString("DisplayName"), rs.getString("GroupName")));
             }
-            return new BuddyList(buddies);
+            return buddyList;
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return null;
@@ -200,6 +205,34 @@ public class DatabaseManager {
             String dropBuddies = "DROP TABLE BuddyList";
             statement.executeUpdate(dropBuddies);
             statement.executeUpdate(dropUsers);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+    }
+
+    public void viewUsers() {
+        try {
+            Statement statement = connection.createStatement();
+            String getUsers = "SELECT * FROM  Users";
+            ResultSet rs = statement.executeQuery(getUsers);
+            while (rs.next()) {
+                System.out.println(rs.getString("UserID") + "," + rs.getString("Username") + "," +
+                        rs.getString("DisplayName"));
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+    }
+
+    public void viewBuddyList() {
+        try {
+            Statement statement = connection.createStatement();
+            String getBuddyList = "SELECT * FROM  BuddyList";
+            ResultSet rs = statement.executeQuery(getBuddyList);
+            while (rs.next()) {
+                System.out.println(rs.getString("UserID") + "," + rs.getString("BuddyID") + "," +
+                        rs.getString("GroupName"));
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }

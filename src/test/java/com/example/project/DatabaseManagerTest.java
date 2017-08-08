@@ -2,6 +2,7 @@ package com.example.project;
 
 import com.example.project.DatabaseManager.DatabaseManager;
 import com.example.project.Serializable.BuddyList;
+import com.example.project.Serializable.Buddy;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -25,10 +26,10 @@ public class DatabaseManagerTest {
     }
     @Test
     public void stage3_addBuddyToUserTest() throws Exception {
-        assert(databaseManager.addBuddyToUser("Alice", "Bob"));
-        assert(databaseManager.addBuddyToUser("Alice", "Charles"));
-        assert(databaseManager.addBuddyToUser("Charles", "Alice"));
-        assert(!databaseManager.addBuddyToUser("Alice", "Bob"));
+        assert(databaseManager.addBuddyToUser("Alice", "Bob", "Friends"));
+        assert(databaseManager.addBuddyToUser("Alice", "Charles", "Friends"));
+        assert(databaseManager.addBuddyToUser("Charles", "Alice", "Friends"));
+        assert(!databaseManager.addBuddyToUser("Alice", "Bob", "Friends"));
     }
     @Test
     public void stage4_comparePasswordSaltedHashTest() throws Exception {
@@ -38,32 +39,43 @@ public class DatabaseManagerTest {
     @Test
     public void stage5_getBuddyListTest() throws Exception {
         BuddyList buddyList = databaseManager.getBuddyList("Alice");
-        ArrayList<String> buddies = buddyList.getBuddies();
+        ArrayList<Buddy> buddies = buddyList.getBuddies();
         assert(buddies.size() == 2);
-        assert(buddies.contains("bob"));
-        assert(buddies.contains("charles"));
+        assert(buddies.get(0).getDisplayName().equals("Bob"));
+        assert(buddies.get(1).getDisplayName().equals("Charles"));
         buddyList = databaseManager.getBuddyList("Charles");
         buddies = buddyList.getBuddies();
         assert(buddies.size() == 1);
-        assert(buddies.contains("alice"));
+        assert(buddies.get(0).getDisplayName().equals("Alice"));
     }
     @Test
     public void stage6_removeBuddyFromUserTest() throws Exception {
         databaseManager.removeBuddyFromUser("Alice", "Charles");
         BuddyList buddyList = databaseManager.getBuddyList("Alice");
-        ArrayList<String> buddies = buddyList.getBuddies();
+        ArrayList<Buddy> buddies = buddyList.getBuddies();
         assert(buddies.size() == 1);
-        assert(buddies.contains("bob"));
+        assert(buddies.get(0).getDisplayName().equals("Bob"));
     }
     @Test
     public void stage7_removeUserTest() throws Exception {
         databaseManager.removeUser("Bob");
         BuddyList buddyList = databaseManager.getBuddyList("Alice");
-        ArrayList<String> buddies = buddyList.getBuddies();
+        ArrayList<Buddy> buddies = buddyList.getBuddies();
         assert(buddies.size() == 0);
     }
     @Test
     public void stage8_resetTests() throws Exception {
         databaseManager.dropAllTables();
     }
+
+    public void stage9_viewUsers() throws  Exception {
+        databaseManager.viewUsers();
+        System.out.println();
+    }
+    public void stage10_viewBuddyList() throws  Exception {
+        databaseManager.viewBuddyList();
+        System.out.println();
+    }
+
+
 }
