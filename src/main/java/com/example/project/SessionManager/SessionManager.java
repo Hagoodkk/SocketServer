@@ -37,7 +37,7 @@ public class SessionManager {
         }
     }
 
-    public void addOutgoingMessage(String recipient, Message message) {
+    public static void addOutgoingMessage(String recipient, Message message) {
         Queue<Message> queue = outgoingQueue.get(recipient);
         if (queue == null) {
             queue = new LinkedList<>();
@@ -66,8 +66,20 @@ public class SessionManager {
         System.out.println( clients.keySet());
     }
 
-    public static Socket getClientConnection(String username) {
-        return clients.get(username);
+    public static void broadcastStateUpdate(String username, int state) {
+        Message message = new Message();
+        message.setNullMessage(true);
+        if (state == 0) {
+            message.setLogOnEvent(true);
+            message.setLogOn(username);
+        } else if (state == 1) {
+            message.setLogOutEvent(true);
+            message.setLogOut(username);
+        }
+
+        for (String name : clients.keySet()) {
+            addOutgoingMessage(name, message);
+        }
     }
 
 }

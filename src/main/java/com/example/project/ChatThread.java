@@ -155,6 +155,8 @@ public class ChatThread implements Runnable {
     private void establishedConnection(String username) {
         SessionManager sessionManager = SessionManager.getInstance();
 
+        sessionManager.broadcastStateUpdate(username, 0);
+
         try {
             ObjectOutputStream toClient = new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream fromClient = new ObjectInputStream(clientSocket.getInputStream());
@@ -190,6 +192,7 @@ public class ChatThread implements Runnable {
             cnfe.printStackTrace();
         } finally {
             try {
+                sessionManager.broadcastStateUpdate(username, 1);
                 System.out.println(username + " disconnected.");
                 clientSocket.close();
                 sessionManager.removeMember(username);

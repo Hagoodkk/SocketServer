@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c112bc2-d97c-42d5-bb64-231d450cf2ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/Message.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/Message.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatThread.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChatThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="194" column="63" lean-forward="false" selection-start-line="194" selection-start-column="63" selection-end-line="194" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Message.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Serializable/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
               <folding>
                 <element signature="e#379#380#0" expanded="true" />
                 <element signature="e#407#408#0" expanded="true" />
@@ -89,8 +88,8 @@
       <file leaf-file-name="SessionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="431">
+              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -226,18 +225,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Server/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/ClientTracker.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/ServerHello.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/project/ServerTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/UserCredentials.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/Friend.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/DatabaseManager/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/BuddyList.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/project/Serializable/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java" />
       </list>
     </option>
   </component>
@@ -977,7 +976,7 @@
       <workItem from="1502156417049" duration="225000" />
       <workItem from="1502203753272" duration="8586000" />
       <workItem from="1502235020566" duration="1173000" />
-      <workItem from="1502295055291" duration="2286000" />
+      <workItem from="1502295055291" duration="3466000" />
     </task>
     <servers />
   </component>
@@ -1014,7 +1013,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129350000" />
+    <option name="totallyTimeSpent" value="130530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="45" width="1936" height="1056" extended-state="6" />
@@ -1029,7 +1028,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27677625" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1383,14 +1382,14 @@
         <state relative-caret-position="255">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#437#438#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#223#224#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+            <element signature="e#336#337#0" expanded="false" />
+            <element signature="e#398#399#0" expanded="false" />
+            <element signature="e#437#438#0" expanded="false" />
+            <element signature="e#472#473#0" expanded="false" />
+            <element signature="e#529#530#0" expanded="false" />
+            <element signature="e#577#578#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1421,16 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1499,30 +1488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/Serializable/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
           <folding>
             <element signature="e#379#380#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
@@ -1540,6 +1509,36 @@
             <element signature="e#864#865#0" expanded="true" />
             <element signature="e#919#920#0" expanded="true" />
             <element signature="e#965#966#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/project/DatabaseManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/SessionManager/SessionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/project/ChatThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="194" column="63" lean-forward="false" selection-start-line="194" selection-start-column="63" selection-end-line="194" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
