@@ -215,7 +215,9 @@ public class ChatThread implements Runnable {
 
         SessionManager sessionManager = SessionManager.getInstance();
         for (Buddy buddy : buddyList.getBuddies()) {
-            currentlyOnline.add(buddy);
+            if (sessionManager.isOnline(buddy.getDisplayName())) {
+                currentlyOnline.add(buddy);
+            } else currentlyOffline.add(buddy);
         }
         buddyList.setCurrentlyOffline(currentlyOffline);
         buddyList.setCurrentlyOnline(currentlyOnline);

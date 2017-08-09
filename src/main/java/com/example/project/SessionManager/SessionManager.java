@@ -78,7 +78,7 @@ public class SessionManager {
         }
 
         for (String name : clients.keySet()) {
-            addOutgoingMessage(name, message);
+            if (!name.equals(username)) addOutgoingMessage(name, message);
         }
     }
 
