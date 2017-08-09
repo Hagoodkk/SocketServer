@@ -32,6 +32,16 @@ public class DatabaseManagerTest {
         assert(!databaseManager.addBuddyToUser("Alice", "Bob", "Friends"));
     }
     @Test
+    public void stage9_viewUsers() throws  Exception {
+        databaseManager.viewUsers();
+        System.out.println();
+    }
+    @Test
+    public void stage10_viewBuddyList() throws  Exception {
+        databaseManager.viewBuddyList();
+        System.out.println();
+    }
+    @Test
     public void stage4_comparePasswordSaltedHashTest() throws Exception {
         assert(databaseManager.comparePasswordSaltedHash("Alice", "TestSaltedHash"));
         assert(!databaseManager.comparePasswordSaltedHash("Alice", "This"));
@@ -63,19 +73,13 @@ public class DatabaseManagerTest {
         ArrayList<Buddy> buddies = buddyList.getBuddies();
         assert(buddies.size() == 0);
     }
+
     @Test
     public void stage8_resetTests() throws Exception {
         databaseManager.dropAllTables();
     }
 
-    public void stage9_viewUsers() throws  Exception {
-        databaseManager.viewUsers();
-        System.out.println();
-    }
-    public void stage10_viewBuddyList() throws  Exception {
-        databaseManager.viewBuddyList();
-        System.out.println();
-    }
+
 
 
 }
