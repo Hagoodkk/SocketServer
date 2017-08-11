@@ -29,6 +29,7 @@ public class SessionManager {
     }
 
     public Message getNextOutgoing(String recipient) {
+        recipient = recipient.toLowerCase();
         Queue<Message> queue = outgoingQueue.get(recipient);
         if (queue == null || queue.size() == 0) {
             return new Message(true);
@@ -38,6 +39,7 @@ public class SessionManager {
     }
 
     public static void addOutgoingMessage(String recipient, Message message) {
+        recipient = recipient.toLowerCase();
         Queue<Message> queue = outgoingQueue.get(recipient);
         if (queue == null) {
             queue = new LinkedList<>();
@@ -49,16 +51,28 @@ public class SessionManager {
         }
     }
 
+    public static void removeStateUpdatesFromUser(String username) {
+        if (outgoingQueue.get(username) == null) return;
+        for (Message message : outgoingQueue.get(username)) {
+            if (message.isLogOnEvent() || message.isLogOutEvent()) {
+                outgoingQueue.get(username).remove(message);
+            }
+        }
+    }
+
     public boolean isOnline(String username) {
+        username = username.toLowerCase();
         if (clients.containsKey(username)) return true;
         return false;
     }
 
     public static void addMember(String username, Socket clientSocket) {
+        username = username.toLowerCase();
         clients.put(username, clientSocket);
     }
 
     public static void removeMember(String username) {
+        username = username.toLowerCase();
         clients.remove(username);
     }
 
@@ -67,6 +81,7 @@ public class SessionManager {
     }
 
     public static void broadcastStateUpdate(String username, int state) {
+        System.out.println("Broadcasting system update with " + username + " and state number " + state);
         Message message = new Message();
         message.setNullMessage(true);
         if (state == 0) {

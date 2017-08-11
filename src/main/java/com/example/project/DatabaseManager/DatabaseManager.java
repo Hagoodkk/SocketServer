@@ -3,6 +3,7 @@ package com.example.project.DatabaseManager;
 import com.example.project.Serializable.Buddy;
 import com.example.project.Serializable.BuddyList;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -83,6 +84,21 @@ public class DatabaseManager {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;
+        }
+    }
+
+    public String getUserDisplayName(String username) {
+        username = username.toLowerCase();
+        try {
+            Statement statement = connection.createStatement();
+            String getDisplayName = "SELECT DisplayName FROM Users WHERE Username='" + username + "'";
+            ResultSet rs = statement.executeQuery(getDisplayName);
+            if (rs.next()) {
+                return rs.getString("DisplayName");
+            } else return null;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return null;
         }
     }
 
@@ -189,7 +205,8 @@ public class DatabaseManager {
                     "WHERE BuddyList.UserID=(SELECT UserID FROM Users WHERE Username='" + username + "')";
             ResultSet rs = statement.executeQuery(getBuddies);
             while (rs.next()) {
-                buddyList.addBuddy(new Buddy(rs.getString("DisplayName"), rs.getString("GroupName")));
+                String displayName = rs.getString("DisplayName");
+                buddyList.addBuddy(new Buddy(displayName.toLowerCase(), displayName, rs.getString("GroupName")));
             }
             return buddyList;
         } catch (SQLException sqle) {

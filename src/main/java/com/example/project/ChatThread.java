@@ -40,7 +40,7 @@ public class ChatThread implements Runnable {
             ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
 
             UserCredentials userCredentials = (UserCredentials) ois.readObject();
-            String username = userCredentials.getUsername().toLowerCase();
+            String username = userCredentials.getUsername();
             String passwordSaltedHash = userCredentials.getPasswordSaltedHash();
             String passwordSalt = userCredentials.getPasswordSalt();
 
@@ -114,12 +114,13 @@ public class ChatThread implements Runnable {
             String salt = databaseManager.getUserSalt(username);
             userCredentials.setPasswordSalt(salt);
 
-
             oos.writeObject(userCredentials);
             oos.flush();
 
             userCredentials = (UserCredentials) ois.readObject();
-            if (databaseManager.comparePasswordSaltedHash(userCredentials.getUsername(), userCredentials.getPasswordSaltedHash())) {
+            if (databaseManager.comparePasswordSaltedHash(userCredentials.getUsername(), userCredentials.getPasswordSaltedHash())
+                    && !sessionManager.isOnline(username)) {
+                userCredentials.setDisplayName(databaseManager.getUserDisplayName(username));
                 userCredentials.setRequestAccepted(true);
                 oos.writeObject(userCredentials);
                 oos.flush();
@@ -128,6 +129,8 @@ public class ChatThread implements Runnable {
                 ois = new ObjectInputStream(clientSocket.getInputStream());
 
                 BuddyList buddyList = (BuddyList) ois.readObject();
+
+                sessionManager.removeStateUpdatesFromUser(username);
 
                 oos.writeObject(buildBuddyList(username));
 
@@ -168,12 +171,12 @@ public class ChatThread implements Runnable {
                     System.out.println("Inbound: " + clientInbound.getMessage());
                     if (sessionManager.isOnline(recipient)) {
                         sessionManager.addOutgoingMessage(recipient, clientInbound);
-                        System.out.println(recipient);
                     }
                     else {
                         sessionManager.addOutgoingMessage(recipient, clientInbound);
                     }
                 }
+
                 Message clientOutbound = sessionManager.getNextOutgoing(username);
                 if (!clientOutbound.isNullMessage()) System.out.println("Outbound: " + clientOutbound.getMessage());
                 if (clientInbound.isBuddyListUpdate()) {
@@ -204,9 +207,9 @@ public class ChatThread implements Runnable {
 
     private BuddyList buildBuddyList(String username) {
         ArrayList<Buddy> buddies = new ArrayList<>();
-        buddies.add(new Buddy("Carl", "Friends"));
-        buddies.add(new Buddy("Joan", "Friends"));
-        buddies.add(new Buddy("Bob", "Friends"));
+        buddies.add(new Buddy("carl", "Carl", "Friends"));
+        buddies.add(new Buddy("joan", "Joan", "Friends"));
+        buddies.add(new Buddy("bob", "Bob", "Friends"));
         BuddyList buddyList = new BuddyList();
         buddyList.setBuddies(buddies);
 
@@ -215,7 +218,7 @@ public class ChatThread implements Runnable {
 
         SessionManager sessionManager = SessionManager.getInstance();
         for (Buddy buddy : buddyList.getBuddies()) {
-            if (sessionManager.isOnline(buddy.getDisplayName())) {
+            if (sessionManager.isOnline(buddy.getUsername())) {
                 currentlyOnline.add(buddy);
             } else currentlyOffline.add(buddy);
         }
